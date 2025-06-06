@@ -50,11 +50,6 @@ def roll_and_display_dice(i):  # 주사위를 굴리고, 이미지를 표시하�
     img1_filename = f"dice_{dice1_roll}.png"
     img2_filename = f"dice_{dice2_roll}.png"
 
-    # 이미지 파일 존재 확인
-    if not (os.path.exists(img1_filename) and os.path.exists(img2_filename)):
-        print("주사위 이미지가 없습니다. dice_1.png ~ dice_6.png 파일을 같은 폴더에 넣어주세요.")
-        return
-        
     # 이미지 파일 열기
     try:
         img1 = Image.open(img1_filename)
@@ -118,8 +113,17 @@ def roll_and_display_dice(i):  # 주사위를 굴리고, 이미지를 표시하�
     time.sleep(t)            # 간격 대기
 
 if __name__ == "__main__":
-    n = get_valid_number_of_rolls()    # 던질 횟수 입력 받기
-    t = get_valid_number_of_interval() # 간격 입력 받기
-    for i in range(n):                 # 주사위 굴리기
-        roll_and_display_dice(i)
+    # 이미지 파일 존재 확인
+    missing_images = [f"dice_{i}.png" for i in range(1, 7) if not os.path.exists(f"dice_{i}.png")]
+    if missing_images:
+        print("다음 주사위 이미지 파일이 누락되었습니다:")
+        for fname in missing_images:
+            print(f" - {fname}")
+        print("dice_1.png ~ dice_6.png 파일을 같은 폴더에 넣어주세요.")
+
+    else:
+        n = get_valid_number_of_rolls()    # 던질 횟수 입력 받기
+        t = get_valid_number_of_interval() # 간격 입력 받기
+        for i in range(n):                 # 주사위 굴리기
+            roll_and_display_dice(i)
 ```
