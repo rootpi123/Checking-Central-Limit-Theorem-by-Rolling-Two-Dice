@@ -108,7 +108,9 @@ def roll_and_display_dice(i):  # 주사위를 굴리고, 이미지를 표시하�
         title_text=f"Dice Roll Result - Attempt {i+1}/{n}",
         showlegend=False,
         bargap=0,
-        bargroupgap=0
+        bargroupgap=0,
+        plot_bgcolor='white',
+        paper_bgcolor='white'
     )
 
     clear_output(wait=True)  # 이전 출력 삭제
