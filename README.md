@@ -1,4 +1,5 @@
 # Roll-Two-Dice
+```
 import random
 import os
 import time
@@ -119,3 +120,4 @@ if __name__ == "__main__":
     t = get_valid_number_of_interval() # 간격 입력 받기
     for i in range(n):                 # 주사위 굴리기
         roll_and_display_dice(i)
+```
