@@ -4,6 +4,19 @@
 주사위 2개를 굴리는 시행을 통해 중심 극한 정리를 확인할 것이다.
 확률 변수 X의 값을 두 주사위의 합으로 정의한다. 그러면, 각 시행의 결과는 다른 시행의 결과에 영향을 미치지 못하므로 모든 확률 변수는 독립이다. 또한, 모두 동일한 분포를 가진다.
 S = X1 + X2 + ... + Xn으로 정의한다. 그렇다면 중심 극한 정리에 따라 n이 충분히 크다면 S의 평균의 분포는 정규 분포와 가까워질 것이다.
+## 실행 과정
+### 모듈 불러오기
+먼저 코드 실행에 필요한 모듈들을 불러온다.
+```python
+import random
+import os
+import time
+from PIL import Image
+from IPython.display import display, clear_output
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import io, base64
+```
 ## 전체 코드
 ```python
 import random
