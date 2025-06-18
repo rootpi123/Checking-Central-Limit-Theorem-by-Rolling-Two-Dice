@@ -188,7 +188,8 @@ if __name__ == "__main__":
 ![Image](https://github.com/user-attachments/assets/fe1a3c96-ae9a-4bd7-bd21-2f016147a922)
 ### n = 1000
 ![Image](https://github.com/user-attachments/assets/fe3e8415-54ce-4f92-836c-29908d113ee4)
-
+### n = 10000
+![Image](https://github.com/user-attachments/assets/a37ec6c2-c634-47de-8281-445503d97ec2)
 ## 전체 코드
 ```python
 import random                                      # 주사위 숫자 생성을 위한 랜덤 모듈
