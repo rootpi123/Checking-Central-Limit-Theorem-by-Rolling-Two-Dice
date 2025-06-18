@@ -8,14 +8,44 @@ S = X1 + X2 + ... + Xn으로 정의한다. 그렇다면 중심 극한 정리에 
 ### 모듈 불러오기
 먼저 코드 실행에 필요한 모듈들을 불러온다.
 ```python
-import random
-import os
-import time
-from PIL import Image
-from IPython.display import display, clear_output
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-import io, base64
+import random            # 주사위 숫자 생성을 위한 랜덤 모듈
+import os                # 파일 존재 여부 확인
+import time              # 딜레이를 위한 시간 모듈
+from PIL import Image    # 이미지 처리용 라이브러리
+from IPython.display import display, clear_output  # Jupyter에서 이미지/그래프 갱신
+import plotly.graph_objects as go                  # Plotly 시각화 구성요소
+from plotly.subplots import make_subplots          # 서브플롯 생성
+import io, base64        # 이미지 인코딩을 위한 모듈
+import numpy as np       # 수치 계산용
+from scipy.stats import norm  # 정규 분포 함수
+```
+### 시행 횟수 입력받기(+시행 간 간격)
+다음으로는 주사위 2개를 굴리는 시행을 몇 번 반복할 것인지를 사용자에게 입력받는다. 시행 횟수는 양의 정수만 받을 수 있도록 한다.
+추가로 각 시행 간의 간격 또한 입력받는다(이는 꼭 필요한 것은 아님).
+```python
+# 사용자로부터 유효한 주사위 던지기 횟수를 입력받음
+def get_valid_number_of_rolls():
+    while True:
+        try:
+            n = int(input("주사위를 던질 횟수를 입력하세요: "))
+            if n > 0:
+                return n
+            else:
+                print("양의 정수만 입력하세요.")
+        except ValueError:
+            print("양의 정수만 입력하세요.")
+
+# 사용자로부터 유효한 간격(초)을 입력받음
+def get_valid_number_of_interval():
+    while True:
+        try:
+            t = float(input("각 시행 사이의 간격을 입력하세요 (단위: 초): "))
+            if t >= 0:
+                return t
+            else:
+                print("0 이상의 수만 입력하세요.")
+        except ValueError:
+            print("0 이상의 수만 입력하세요.")
 ```
 ## 전체 코드
 ```python
